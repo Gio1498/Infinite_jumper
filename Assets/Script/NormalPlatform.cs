@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NormalPlatform : MonoBehaviour
 {
-    public Rigidbody2D PlayerRB;
     float jumpValue = 350;
     Vector2 jumpForce;
 
@@ -16,8 +15,7 @@ public class NormalPlatform : MonoBehaviour
     {
         if(collision.transform.tag == "Player")
         {
-            Debug.Log("Collision");
-            PlayerRB.AddForce(jumpForce);
+            collision.rigidbody.AddForce(jumpForce);
         }
     }
 }
