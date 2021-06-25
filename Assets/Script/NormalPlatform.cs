@@ -7,27 +7,35 @@ public class NormalPlatform : MonoBehaviour
     float jumpValue = 350;
     Vector2 jumpForce;
     private bool playerCollision;
+    public GameObject player;
 
     private void Start()
     {
         jumpForce = new Vector2(0, jumpValue);
         playerCollision = false;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !playerCollision)
+        //if (collision.gameObject.CompareTag("Player") && !playerCollision)
+        //{
+        //    playerCollision = true;
+        //    collision.rigidbody.AddForce(jumpForce);
+        //}
+
+        if (collision.gameObject.CompareTag("Player") && player.GetComponent<PlayerMovement_Prova>().isGrounded)
         {
-            playerCollision = true;
+            //playerCollision = true;
             collision.rigidbody.AddForce(jumpForce);
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
 
-            playerCollision = false;
-        }
-    }
+    //        playerCollision = false;
+    //    }
+    //}
     
 }
