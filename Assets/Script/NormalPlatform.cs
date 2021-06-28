@@ -6,13 +6,15 @@ public class NormalPlatform : MonoBehaviour
 {
     float jumpValue = 350;
     Vector2 jumpForce;
-    private bool playerCollision;
-    public GameObject player;
+    //private bool playerCollision;
+
+    GameObject player;
 
     private void Start()
     {
         jumpForce = new Vector2(0, jumpValue);
-        playerCollision = false;
+        player = GameObject.Find("Player");
+        //playerCollision = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
