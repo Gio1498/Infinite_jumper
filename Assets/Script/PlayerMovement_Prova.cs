@@ -8,7 +8,7 @@ public class PlayerMovement_Prova : MonoBehaviour
     public Transform FeetPos;
     public float CheckRadius;
     public LayerMask Ground;
-    public bool isGrounded;
+    //public bool isGrounded;
 
     Rigidbody2D rb;
 
@@ -20,7 +20,7 @@ public class PlayerMovement_Prova : MonoBehaviour
     {
         Move();
 
-        isGrounded = Physics2D.OverlapCircle(FeetPos.position, CheckRadius, Ground);        
+        //isGrounded = Physics2D.OverlapCircle(FeetPos.position, CheckRadius, Ground);        
     }
 
     void Move()

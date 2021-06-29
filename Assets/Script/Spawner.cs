@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dist = 5.7f;
+        dist = 4;
         initialY = -3.6f;
         maxDistYFromPlayer = 2;
         minX = -2.76f;
