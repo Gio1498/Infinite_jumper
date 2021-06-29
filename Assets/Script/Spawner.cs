@@ -21,10 +21,10 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         dist = 5.7f;
-        initialY = -3.5f;
-        maxDistYFromPlayer = 2.3f;
-        minX = -3;
-        maxX = 3;
+        initialY = -3.6f;
+        maxDistYFromPlayer = 2;
+        minX = -2.76f;
+        maxX = 2.76f;
         newSpawn = initialY + dist;
 
         for (int i = 0; i < 5; i++)
@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
             GameObject go = Platforms[randomPlatform];
             Instantiate(go, new Vector3(randomX, randomY, 0), Quaternion.identity, PlatformsContainer);
             
-            initialY = randomY + 0.5f;
+            initialY = randomY + 0.3f;
         }
     }
 
