@@ -20,16 +20,27 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dist = 4;
+        dist = 6;
         initialY = -3.6f;
         maxDistYFromPlayer = 2;
-        minX = -2.76f;
-        maxX = 2.76f;
+        minX = -1.94f;
+        maxX = 1.94f;
         newSpawn = initialY + dist;
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
-            randomX = Random.Range(minX, maxX);
+            if(i == 0)
+            {
+                int randomDir = Random.Range(0, 2);
+
+                if(randomDir == 0)
+                    randomX = Random.Range(minX, -1.16f);
+                else
+                    randomX = Random.Range(1.52f, maxX);
+            }
+            else
+                randomX = Random.Range(minX, maxX);
+
             randomY = Random.Range(initialY, initialY + maxDistYFromPlayer);
             randomPlatform = Random.Range(0, Platforms.Length);
             
@@ -45,7 +56,7 @@ public class Spawner : MonoBehaviour
     {
         if(transform.position.y >= newSpawn)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 randomX = Random.Range(minX, maxX);
                 randomY = Random.Range(initialY, initialY + maxDistYFromPlayer);
@@ -58,6 +69,14 @@ public class Spawner : MonoBehaviour
             }
 
             newSpawn += dist;
+        }
+
+        if(PlatformsContainer.childCount > 40)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                Destroy(PlatformsContainer.GetChild(i).gameObject);
+            }
         }
     }
 }
