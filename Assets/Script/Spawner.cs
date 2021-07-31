@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
             GameObject go = Platforms[randomPlatform];
             Instantiate(go, new Vector3(randomX, randomY, 0), Quaternion.identity, PlatformsContainer);
             
-            initialY = randomY + 0.3f;
+            initialY = randomY + 0.6f;
         }
     }
 
@@ -65,7 +65,7 @@ public class Spawner : MonoBehaviour
                 GameObject go = Platforms[randomPlatform];
                 Instantiate(go, new Vector3(randomX, randomY, 0), Quaternion.identity, PlatformsContainer);
 
-                initialY = randomY + 0.5f;
+                initialY = randomY + 0.6f;
             }
 
             newSpawn += dist;

@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Points : MonoBehaviour
 {
-    public Text Text;
+    public TextMeshProUGUI Text;
     int points;
     float y, newY;
 
     // Start is called before the first frame update
     void Start()
     {
-        Text = Text.GetComponent<Text>();
+        //Text = Text.GetComponent<Text>();
         points = 0;
         y = transform.position.y;
     }
