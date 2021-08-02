@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement_Prova : MonoBehaviour
 {
-    public float Speed;
-    public Transform FeetPos;
-    public float CheckRadius;
-    public LayerMask Ground;
+    public float Speed; 
     public GameObject FireBall;
     
     Rigidbody2D rb;
@@ -21,7 +18,7 @@ public class PlayerMovement_Prova : MonoBehaviour
     {
         Move();         
         
-        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.x == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.x == 0 && rb.velocity.y == 0)
         {
             GameObject go = FireBall;
             Instantiate(go, new Vector3(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);             

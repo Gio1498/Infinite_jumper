@@ -7,14 +7,20 @@ using UnityEngine.UI;
 public class Points : MonoBehaviour
 {
     public TextMeshProUGUI Text;
-    int points;
-    float y, newY;
+    public GameObject Platform;
+    public bool bossFight;
+
+    int points, bossPoints;
+    float y, newY, platformY;
+    GameObject go;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Text = Text.GetComponent<Text>();
+        bossFight = false;
         points = 0;
+        bossPoints = 400;
+        go = Platform;
         y = transform.position.y;
     }
 
@@ -28,6 +34,16 @@ public class Points : MonoBehaviour
             y = newY;
             points++;
             Text.text = points.ToString();
+        }
+
+        if (points >= bossPoints)
+        {
+            platformY = transform.position.y - 2;
+            Instantiate(go, new Vector3(0, platformY), Quaternion.identity);
+
+            bossFight = true;
+
+            bossPoints += bossPoints;
         }
     }
 }

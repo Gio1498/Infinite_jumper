@@ -16,10 +16,13 @@ public class Spawner : MonoBehaviour
 
     public Transform PlatformsContainer;
     public GameObject[] Platforms;
+    public Points points;
 
     // Start is called before the first frame update
     void Start()
     {
+        points = transform.parent.GetComponent<Points>();
+
         dist = 6;
         initialY = -3.6f;
         maxDistYFromPlayer = 2;
@@ -71,9 +74,17 @@ public class Spawner : MonoBehaviour
             newSpawn += dist;
         }
 
-        if(PlatformsContainer.childCount > 40)
+        if(PlatformsContainer.childCount > 50)
         {
             for (int i = 0; i < 15; i++)
+            {
+                Destroy(PlatformsContainer.GetChild(i).gameObject);
+            }
+        }
+
+        if (points.bossFight)
+        {
+            for (int i = 0; i < PlatformsContainer.childCount; i++)
             {
                 Destroy(PlatformsContainer.GetChild(i).gameObject);
             }
