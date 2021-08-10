@@ -944,6 +944,18 @@ PrefabInstance:
       propertyPath: PlatformsContainer
       value: 
       objectReference: {fileID: 308412653}
+    - target: {fileID: 4053458271309404813, guid: b799eebfa3fa31c46b93a10b6657d635, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053458271309404813, guid: b799eebfa3fa31c46b93a10b6657d635, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053458271309404813, guid: b799eebfa3fa31c46b93a10b6657d635, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4901566478341479822, guid: b799eebfa3fa31c46b93a10b6657d635, type: 3}
       propertyPath: m_Name
       value: Player

@@ -8,18 +8,19 @@ public class Points : MonoBehaviour
 {
     public TextMeshProUGUI Text;
     public GameObject Platform;
-    public bool bossFight;
+    public bool startedBossFight;
+    public float platformY;
 
     int points, bossPoints;
-    float y, newY, platformY;
+    float y, newY;
     GameObject go;
 
     // Start is called before the first frame update
     void Start()
     {
-        bossFight = false;
+        startedBossFight = false;
         points = 0;
-        bossPoints = 400;
+        bossPoints = 300;
         go = Platform;
         y = transform.position.y;
     }
@@ -38,10 +39,10 @@ public class Points : MonoBehaviour
 
         if (points >= bossPoints)
         {
-            platformY = transform.position.y - 2;
+            platformY = transform.position.y + 8;
             Instantiate(go, new Vector3(0, platformY), Quaternion.identity);
 
-            bossFight = true;
+            startedBossFight = true;
 
             bossPoints += bossPoints;
         }

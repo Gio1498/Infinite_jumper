@@ -82,12 +82,23 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        if (points.bossFight)
-        {
-            for (int i = 0; i < PlatformsContainer.childCount; i++)
+        if (points.startedBossFight)
+        {            
+            for (int i = PlatformsContainer.childCount - 15; i < PlatformsContainer.childCount; i++)
             {
-                Destroy(PlatformsContainer.GetChild(i).gameObject);
+                if (PlatformsContainer.GetChild(i).gameObject.transform.position.y > points.platformY)
+                    Destroy(PlatformsContainer.GetChild(i).gameObject);
+            }
+
+            if (transform.position.y > points.platformY + 0.5f)
+            {
+                for (int i = 0; i < PlatformsContainer.childCount; i++)
+                {                    
+                    Destroy(PlatformsContainer.GetChild(i).gameObject);
+                }
+
+                points.startedBossFight = false;
             }
         }
-    }
+    }    
 }
