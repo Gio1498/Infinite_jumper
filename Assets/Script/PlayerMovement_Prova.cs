@@ -6,6 +6,7 @@ public class PlayerMovement_Prova : MonoBehaviour
 {
     public float Speed; 
     public GameObject FireBall;
+    public bool BossDead;
     
     Rigidbody2D rb;
     
@@ -22,6 +23,12 @@ public class PlayerMovement_Prova : MonoBehaviour
         {
             GameObject go = FireBall;
             Instantiate(go, new Vector3(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);             
+        }
+
+        if (BossDead)
+        {
+            rb.AddForce(new Vector2(0, 250));
+            BossDead = false;
         }
     }
 

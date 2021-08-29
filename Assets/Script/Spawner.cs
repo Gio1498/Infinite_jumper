@@ -17,12 +17,17 @@ public class Spawner : MonoBehaviour
     public Transform PlatformsContainer;
     public GameObject[] Platforms;
     public Points points;
+    PlayerMovement_Prova player;
+
+    private void Awake()
+    {
+        points = transform.parent.GetComponent<Points>();
+        player = transform.parent.GetComponent<PlayerMovement_Prova>();
+    }
 
     // Start is called before the first frame update
     void Start()
-    {
-        points = transform.parent.GetComponent<Points>();
-
+    {       
         dist = 6;
         initialY = -3.6f;
         maxDistYFromPlayer = 2;
@@ -99,6 +104,12 @@ public class Spawner : MonoBehaviour
 
                 points.startedBossFight = false;
             }
+        }
+
+        if (player.BossDead)
+        {
+            newSpawn = transform.position.y;
+            initialY = newSpawn + 0.5f;            
         }
     }    
 }
