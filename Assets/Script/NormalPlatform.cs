@@ -17,7 +17,7 @@ public class NormalPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") /*&& player.GetComponent<PlayerMovement_Prova>().isGrounded*/)
+        if (collision.gameObject.CompareTag("Player"))
         {
             for (int i = 0; i < collision.contacts.Length; i++)
             {
@@ -28,9 +28,5 @@ public class NormalPlatform : MonoBehaviour
                 }
             }
         }
-
     }
-
-
-
 }

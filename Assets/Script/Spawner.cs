@@ -16,13 +16,12 @@ public class Spawner : MonoBehaviour
 
     public Transform PlatformsContainer;
     public GameObject[] Platforms;
-    public Points points;
-    PlayerMovement_Prova player;
-
+    public Points points;    
+    
     private void Awake()
     {
         points = transform.parent.GetComponent<Points>();
-        player = transform.parent.GetComponent<PlayerMovement_Prova>();
+        GameEventMng.EndBossFightEvent += EndFight;
     }
 
     // Start is called before the first frame update
@@ -58,7 +57,7 @@ public class Spawner : MonoBehaviour
             initialY = randomY + 0.6f;
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -95,7 +94,7 @@ public class Spawner : MonoBehaviour
                     Destroy(PlatformsContainer.GetChild(i).gameObject);
             }
 
-            if (transform.position.y > points.platformY + 0.5f)
+            if (transform.position.y > points.platformY + 0.6f)
             {
                 for (int i = 0; i < PlatformsContainer.childCount; i++)
                 {                    
@@ -104,12 +103,12 @@ public class Spawner : MonoBehaviour
 
                 points.startedBossFight = false;
             }
-        }
+        }        
+    }
 
-        if (player.BossDead)
-        {
-            newSpawn = transform.position.y;
-            initialY = newSpawn + 0.5f;            
-        }
-    }    
+    void EndFight()
+    {
+        newSpawn = transform.position.y;
+        initialY = newSpawn + 0.3f; 
+    }
 }

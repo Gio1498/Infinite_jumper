@@ -8,11 +8,11 @@ public class PlayerMovement_Prova : MonoBehaviour
     public GameObject FireBall;
     public bool BossDead;
     
-    Rigidbody2D rb;
-    
+    Rigidbody2D rb;    
+
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();        
     }
 
     void Update()
@@ -25,9 +25,12 @@ public class PlayerMovement_Prova : MonoBehaviour
             Instantiate(go, new Vector3(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);             
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))  //--> DA TOGLIERE
+            BossDead = true;
+
         if (BossDead)
         {
-            rb.AddForce(new Vector2(0, 250));
+            GameEventMng.BossFightEnd();            
             BossDead = false;
         }
     }
@@ -37,5 +40,5 @@ public class PlayerMovement_Prova : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float moveBy = x * Speed;
         rb.velocity = new Vector2(moveBy, rb.velocity.y);
-    }    
+    }   
 }
