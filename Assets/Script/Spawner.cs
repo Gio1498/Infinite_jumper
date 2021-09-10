@@ -108,7 +108,7 @@ public class Spawner : MonoBehaviour
 
     void EndFight()
     {
-        newSpawn = transform.position.y;
+        newSpawn = transform.position.y - 0.1f;
         initialY = newSpawn + 0.3f; 
     }
 }

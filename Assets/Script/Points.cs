@@ -11,7 +11,7 @@ public class Points : MonoBehaviour
     public bool startedBossFight;
     public float platformY;
 
-    int points, bossPoints;
+    int points, bossPoints, pointsToDo;
     float y, newY;
     GameObject go;
 
@@ -21,6 +21,7 @@ public class Points : MonoBehaviour
         startedBossFight = false;
         points = 0;
         bossPoints = 300;
+        pointsToDo = 300;
         go = Platform;
         y = transform.position.y;
     }
@@ -44,7 +45,7 @@ public class Points : MonoBehaviour
 
             startedBossFight = true;
 
-            bossPoints += bossPoints;
+            bossPoints += pointsToDo;
         }
     }
 }
