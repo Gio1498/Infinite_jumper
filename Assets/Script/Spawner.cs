@@ -63,7 +63,7 @@ public class Spawner : MonoBehaviour
     {
         if(transform.position.y >= newSpawn)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 randomX = Random.Range(minX, maxX);
                 randomY = Random.Range(initialY, initialY + maxDistYFromPlayer);
@@ -87,14 +87,14 @@ public class Spawner : MonoBehaviour
         }
 
         if (points.startedBossFight)
-        {            
-            for (int i = PlatformsContainer.childCount - 15; i < PlatformsContainer.childCount; i++)
+        {
+            for (int i = PlatformsContainer.childCount - 10; i < PlatformsContainer.childCount; i++)
             {
                 if (PlatformsContainer.GetChild(i).gameObject.transform.position.y > points.platformY)
                     Destroy(PlatformsContainer.GetChild(i).gameObject);
             }
 
-            if (transform.position.y > points.platformY + 0.6f)
+            if (transform.position.y > points.platformY + 0.65f)
             {
                 for (int i = 0; i < PlatformsContainer.childCount; i++)
                 {                    

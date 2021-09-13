@@ -25,7 +25,7 @@ public class PlayerMovement_Prova : MonoBehaviour
             Instantiate(go, new Vector3(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);             
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))  //--> DA TOGLIERE
+        if (Input.GetKeyDown(KeyCode.B))  //--> DA TOGLIERE
             BossDead = true;
 
         if (BossDead)
